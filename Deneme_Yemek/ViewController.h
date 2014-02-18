@@ -10,4 +10,11 @@
 
 @interface ViewController : UIViewController
 
+@property NSMutableArray *soups;
+@property NSMutableArray *appetizers;
+@property NSMutableArray *meals;
+@property NSMutableArray *desserts;
+
+-(IBAction)buttonPressed:(id)sender;
+
 @end

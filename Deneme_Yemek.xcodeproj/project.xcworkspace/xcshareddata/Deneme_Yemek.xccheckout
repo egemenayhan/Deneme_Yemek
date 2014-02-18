@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F421A891-4EDC-4244-8953-85F7F299D26C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Deneme_Yemek</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>67D71AC2-C5D0-47B9-A9E4-77EAA1CF66CD</key>
+		<string>https://github.com/egemenayhan/Deneme_Yemek.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Deneme_Yemek.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>67D71AC2-C5D0-47B9-A9E4-77EAA1CF66CD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/egemenayhan/Deneme_Yemek.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>67D71AC2-C5D0-47B9-A9E4-77EAA1CF66CD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>67D71AC2-C5D0-47B9-A9E4-77EAA1CF66CD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Deneme_Yemek</string>
+		</dict>
+	</array>
+</dict>
+</plist>

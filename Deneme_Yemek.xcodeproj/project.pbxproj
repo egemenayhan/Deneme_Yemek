@@ -21,6 +21,11 @@
 		FDC6D3B318AFE5790070E139 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC6D39518AFE5790070E139 /* UIKit.framework */; };
 		FDC6D3BB18AFE5790070E139 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDC6D3B918AFE5790070E139 /* InfoPlist.strings */; };
 		FDC6D3BD18AFE5790070E139 /* Deneme_YemekTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6D3BC18AFE5790070E139 /* Deneme_YemekTests.m */; };
+		FDDA508718B0034E00268423 /* corba.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDDA508618B0034E00268423 /* corba.jpg */; };
+		FDDA508A18B004D100268423 /* TableController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDA508918B004D100268423 /* TableController.m */; };
+		FDDA508D18B0083400268423 /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDA508C18B0083400268423 /* TableCell.m */; };
+		FDDA509018B00E7E00268423 /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDA508F18B00E7E00268423 /* DetailView.m */; };
+		FDF7578E18AFFAF60079811E /* Tarif.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF7578D18AFFAF60079811E /* Tarif.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,15 @@
 		FDC6D3B818AFE5790070E139 /* Deneme_YemekTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Deneme_YemekTests-Info.plist"; sourceTree = "<group>"; };
 		FDC6D3BA18AFE5790070E139 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FDC6D3BC18AFE5790070E139 /* Deneme_YemekTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Deneme_YemekTests.m; sourceTree = "<group>"; };
+		FDDA508618B0034E00268423 /* corba.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = corba.jpg; path = ../../../../Downloads/corba.jpg; sourceTree = "<group>"; };
+		FDDA508818B004D100268423 /* TableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableController.h; sourceTree = "<group>"; };
+		FDDA508918B004D100268423 /* TableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableController.m; sourceTree = "<group>"; };
+		FDDA508B18B0083400268423 /* TableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCell.h; sourceTree = "<group>"; };
+		FDDA508C18B0083400268423 /* TableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCell.m; sourceTree = "<group>"; };
+		FDDA508E18B00E7E00268423 /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailView.h; sourceTree = "<group>"; };
+		FDDA508F18B00E7E00268423 /* DetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailView.m; sourceTree = "<group>"; };
+		FDF7578C18AFFAF60079811E /* Tarif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tarif.h; sourceTree = "<group>"; };
+		FDF7578D18AFFAF60079811E /* Tarif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tarif.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +126,20 @@
 		FDC6D39718AFE5790070E139 /* Deneme_Yemek */ = {
 			isa = PBXGroup;
 			children = (
+				FDDA508618B0034E00268423 /* corba.jpg */,
 				FDC6D3A018AFE5790070E139 /* AppDelegate.h */,
 				FDC6D3A118AFE5790070E139 /* AppDelegate.m */,
 				FDC6D3A318AFE5790070E139 /* Main.storyboard */,
 				FDC6D3A618AFE5790070E139 /* ViewController.h */,
 				FDC6D3A718AFE5790070E139 /* ViewController.m */,
+				FDDA508818B004D100268423 /* TableController.h */,
+				FDDA508918B004D100268423 /* TableController.m */,
+				FDDA508E18B00E7E00268423 /* DetailView.h */,
+				FDDA508F18B00E7E00268423 /* DetailView.m */,
+				FDDA508B18B0083400268423 /* TableCell.h */,
+				FDDA508C18B0083400268423 /* TableCell.m */,
+				FDF7578C18AFFAF60079811E /* Tarif.h */,
+				FDF7578D18AFFAF60079811E /* Tarif.m */,
 				FDC6D3A918AFE5790070E139 /* Images.xcassets */,
 				FDC6D39818AFE5790070E139 /* Supporting Files */,
 			);
@@ -231,6 +254,7 @@
 				FDC6D3AA18AFE5790070E139 /* Images.xcassets in Resources */,
 				FDC6D39C18AFE5790070E139 /* InfoPlist.strings in Resources */,
 				FDC6D3A518AFE5790070E139 /* Main.storyboard in Resources */,
+				FDDA508718B0034E00268423 /* corba.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,8 +273,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDDA508D18B0083400268423 /* TableCell.m in Sources */,
+				FDF7578E18AFFAF60079811E /* Tarif.m in Sources */,
 				FDC6D3A818AFE5790070E139 /* ViewController.m in Sources */,
 				FDC6D3A218AFE5790070E139 /* AppDelegate.m in Sources */,
+				FDDA508A18B004D100268423 /* TableController.m in Sources */,
+				FDDA509018B00E7E00268423 /* DetailView.m in Sources */,
 				FDC6D39E18AFE5790070E139 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,6 +488,7 @@
 				FDC6D3C218AFE5790070E139 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FDC6D3C318AFE5790070E139 /* Build configuration list for PBXNativeTarget "Deneme_YemekTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +497,7 @@
 				FDC6D3C518AFE5790070E139 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
