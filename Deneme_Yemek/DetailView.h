@@ -20,5 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *ingredientsTV2;
 @property (weak, nonatomic) IBOutlet UITextView *preparationtTV;
 @property (strong, nonatomic) Tarif *tarif;
+@property (weak, nonatomic) IBOutlet UILabel *malzemelerLbl;
+@property (weak, nonatomic) IBOutlet UILabel *hazirlanisLbl;
 
 @end

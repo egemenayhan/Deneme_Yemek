@@ -189,7 +189,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="UFk-x0-l0P">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" editable="NO" selectable="NO" id="UFk-x0-l0P">
                                         <rect key="frame" x="20" y="240" width="135" height="181"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -197,7 +197,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="mbE-Ng-cfd">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" editable="NO" selectable="NO" id="mbE-Ng-cfd">
                                         <rect key="frame" x="165" y="240" width="135" height="181"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -211,7 +211,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="wHW-dA-Usj">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" id="wHW-dA-Usj">
                                         <rect key="frame" x="20" y="458" width="280" height="380"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -228,9 +228,11 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="hazirlanisLbl" destination="Mdv-0n-nK2" id="QgM-N8-goi"/>
                         <outlet property="imageView" destination="ahs-iB-TRi" id="b5j-co-A7t"/>
                         <outlet property="ingredientsTV1" destination="UFk-x0-l0P" id="xZX-4h-e39"/>
                         <outlet property="ingredientsTV2" destination="mbE-Ng-cfd" id="Em1-Wd-lhE"/>
+                        <outlet property="malzemelerLbl" destination="jsE-h1-oYe" id="Xm5-V7-DzM"/>
                         <outlet property="nameLbl" destination="d1d-lG-rUJ" id="aHW-BJ-b4m"/>
                         <outlet property="prepTimeLbl" destination="2ZR-SV-cTM" id="fIf-3n-fXn"/>
                         <outlet property="preparationtTV" destination="wHW-dA-Usj" id="UKi-P1-rCn"/>
