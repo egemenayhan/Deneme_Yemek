@@ -38,8 +38,26 @@
     prepTimeLbl.text = tarif.prepTime;
     imageView.image = [UIImage imageNamed:tarif.image];
     preparationtTV.text = tarif.preparation;
-    ingredientsTV1.text = tarif.ingredients;
-    ingredientsTV2.text = tarif.ingredients;
+    //NSString *asd = [NSString str]
+    for (int i = 0; i < [tarif.ingredients count]; i++)
+    {
+        if (i % 2 == 0)
+        {
+            if (i == 0) {
+                ingredientsTV1.text = [ingredientsTV1.text stringByAppendingString:[tarif.ingredients objectAtIndex:i]];
+            }
+            else
+                ingredientsTV1.text = [ingredientsTV1.text stringByAppendingString:[NSString stringWithFormat:@"\n%@",[tarif.ingredients objectAtIndex:i]]];
+        }
+        else
+        {
+            if (i == 1) {
+                ingredientsTV2.text = [ingredientsTV2.text stringByAppendingString:[tarif.ingredients objectAtIndex:i]];
+            }
+            else
+                ingredientsTV2.text = [ingredientsTV2.text stringByAppendingString:[NSString stringWithFormat:@"\n%@",[tarif.ingredients objectAtIndex:i]]];
+        }
+    }
     
     [ingredientsTV1 setFrame:CGRectMake(ingredientsTV1.frame.origin.x, ingredientsTV1.frame.origin.y, ingredientsTV1.frame.size.width, [self getContentSize:ingredientsTV1].height)];
     [ingredientsTV2 setFrame:CGRectMake(ingredientsTV2.frame.origin.x, ingredientsTV2.frame.origin.y, ingredientsTV2.frame.size.width, [self getContentSize:ingredientsTV2].height)];

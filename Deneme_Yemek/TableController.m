@@ -20,9 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //recipes = [NSArray arrayWithObjects:obj,obj,obj,obj, nil];
-	// Do any additional setup after loading the view, typically from a nib.
-    }
+}
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -49,23 +47,5 @@
     dt.tarif = [recipes objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:dt animated:YES];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @end

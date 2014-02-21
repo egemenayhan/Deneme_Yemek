@@ -132,17 +132,17 @@ sqlite3* database;
     [db OpenDatabase];
     @try {
         if(database == nil && dataBaseIsOpen == false){
-            NSException *exception = [NSException exceptionWithName: @"ReadSong" reason: @"Veritabanı açık değil." userInfo: nil];
+            NSException *exception = [NSException exceptionWithName: @"ReadRecipe" reason: @"Veritabanı açık değil." userInfo: nil];
             @throw exception;
         }
         
-        NSString* sqlComment = [NSString stringWithFormat:@"SELECT name,ingredients,preparation,imagePath,type FROM TblRecipe"];
+        NSString* sqlComment = [NSString stringWithFormat:@"SELECT name,prepTime,ingredients,preparation,imagePath,type FROM TblRecipe"];
         
         
         //database gönderilen komutun çalışıp çalışmadığını kontrol eder
         int k=sqlite3_prepare_v2(database, [sqlComment cStringUsingEncoding:(NSUTF8StringEncoding)], -1, &sqlStmt, NULL) ;
         if(k!= SQLITE_OK) {
-            NSException *exception = [NSException exceptionWithName: @"ReadSong" reason: [NSString stringWithFormat:@"sqlite3_prepare_v2'de hata :%d",k] userInfo: nil];
+            NSException *exception = [NSException exceptionWithName: @"ReadRecipe" reason: [NSString stringWithFormat:@"sqlite3_prepare_v2'de hata :%d",k] userInfo: nil];
             @throw exception;
         }
         //int kp=sqlite3_step(sqlStmt) ;
@@ -151,22 +151,16 @@ sqlite3* database;
             @try {
                 Tarif *obj = [[Tarif alloc]init];
                 //int değerler çekmek için
-                //int data = sqlite3_column_int(sqlStmt, 0) ;
-                int data = sqlite3_column_int(sqlStmt, 0);
+                //int data = sqlite3_column_int(sqlStmt, 0);
                 //string değerler çekmek için
-                obj.name=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 1)];
-                //obj.prepTime=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 2)];
-                obj.ingredients=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 2)];
+                obj.name=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 0)];
+                obj.prepTime=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 1)];
+                NSString *txtIngredients = [NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 2)];
+                obj.ingredients = [txtIngredients componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
                 obj.preparation=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 3)];
                 obj.image=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 4)];
-                data = sqlite3_column_int(sqlStmt, 5);
+                int data = sqlite3_column_int(sqlStmt, 5);
                 obj.type = [NSNumber numberWithInt:data];
-                NSLog(@"read: %@",obj.name);
-                NSLog(@"read: %@",obj.ingredients);
-                NSLog(@"read: %@",obj.preparation);
-                NSLog(@"read: %@",obj.image);
-                NSLog(@"read: %@",obj.type);
-                
                 //şey db'yi değiştirdikten sonra uygulamayı silin ve ardından product->clean yapın
                 //yoksa eski database i kullanmaya devam eder
                 
