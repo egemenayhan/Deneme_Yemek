@@ -15,5 +15,6 @@
 @property (strong,nonatomic) NSString *image;
 @property (strong,nonatomic) NSString *preparation;
 @property (strong,nonatomic) NSString *ingredients;
+@property (strong,nonatomic) NSNumber *type;
 
 @end

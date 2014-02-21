@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "TableController.h"
 #import "Tarif.h"
-
+#import "DBOperations.h"
 @interface ViewController ()
 
 @end
@@ -24,6 +24,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSMutableArray *result=[[DBOperations sharedDb] readRecipe];
+    
     
     Tarif *obj= [Tarif new];
     Tarif *obj2= [Tarif new];

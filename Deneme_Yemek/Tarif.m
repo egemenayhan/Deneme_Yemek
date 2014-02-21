@@ -15,5 +15,6 @@
 @synthesize image;
 @synthesize ingredients;
 @synthesize name;
+@synthesize type;
 
 @end
