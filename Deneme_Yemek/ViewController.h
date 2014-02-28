@@ -14,6 +14,8 @@
 @property NSMutableArray *appetizers;
 @property NSMutableArray *meals;
 @property NSMutableArray *desserts;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
+
 
 -(IBAction)buttonPressed:(id)sender;
 
