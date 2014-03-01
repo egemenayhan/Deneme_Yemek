@@ -80,14 +80,12 @@
         SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
         
         swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc) {
-            OtherViewController *otherView = (OtherViewController *)segue.destinationViewController;
-            otherView.title = [NSString stringWithFormat:@"%@", [menuItems objectAtIndex:indexPath.row]];
-            
+
             UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
             [navController setViewControllers: @[dvc] animated: NO ];
             [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];
         };
-        
+    
     }
     
 }

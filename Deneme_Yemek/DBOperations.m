@@ -136,7 +136,7 @@ sqlite3* database;
             @throw exception;
         }
         
-        NSString *sqlComment = [NSString stringWithFormat:@"SELECT id,name,prepTime,ingredients,preparation,imagePath,type,isFavorite FROM TblRecipe"];
+        NSString *sqlComment = [NSString stringWithFormat:@"SELECT * FROM TblRecipe"];
         
         
         //database gönderilen komutun çalışıp çalışmadığını kontrol eder

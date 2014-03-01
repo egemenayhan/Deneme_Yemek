@@ -41,11 +41,13 @@
     preparationtTV.text = tarif.preparation;
     if (tarif.isFavorite == [NSNumber numberWithInteger:1])
     {
-        _likeButton.image = [UIImage imageNamed:@"fav1"];
+        _likeButton.title = @"+";
+        //_likeButton.image = [UIImage imageNamed:@"fav1"];
     }
     else
     {
-        _likeButton.image = [UIImage imageNamed:@"fav2"];
+        _likeButton.title = @"-";
+        //_likeButton.image = [UIImage imageNamed:@"fav2"];
     }
 
 
@@ -90,13 +92,15 @@
     {
         [[DBOperations sharedDb] updateFavorite:tarif.id isFavorite:[NSNumber numberWithInteger:0]];
         tarif.isFavorite = [NSNumber numberWithInt:0];
-        _likeButton.image = [UIImage imageNamed:@"fav1"];
+        _likeButton.title = @"-";
+        //_likeButton.image = [UIImage imageNamed:@"fav1"];
     }
     else
     {
         [[DBOperations sharedDb] updateFavorite:tarif.id isFavorite:[NSNumber numberWithInteger:1]];
         tarif.isFavorite = [NSNumber numberWithInt:1];
-        _likeButton.image = [UIImage imageNamed:@"fav2"];
+        _likeButton.title = @"+";
+        //_likeButton.image = [UIImage imageNamed:@"fav2"];
     }
 }
 

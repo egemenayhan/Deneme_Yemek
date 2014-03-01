@@ -84,7 +84,7 @@
         <scene sceneID="SCm-D1-DI0">
             <objects>
                 <tableViewController id="4im-s9-v4h" customClass="FavoritesViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hcR-3B-uhV">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="hcR-3B-uhV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -387,7 +387,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="C5r-TQ-3P4">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="fav1.png" id="wN3-tu-YG1">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="wN3-tu-YG1">
                             <connections>
                                 <action selector="likeButtonPressed:" destination="mdZ-g6-MeI" id="FaI-oR-1Ez"/>
                             </connections>
@@ -414,9 +414,6 @@
             <point key="canvasLocation" x="1913" y="740"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="fav1.png" width="60" height="60"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

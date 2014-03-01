@@ -11,8 +11,7 @@
 		FD1CF0F018C0F6A2004FD787 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1CF0EF18C0F6A2004FD787 /* SidebarViewController.m */; };
 		FD1CF0F318C0F877004FD787 /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1CF0F218C0F877004FD787 /* OtherViewController.m */; };
 		FD37D6ED18C1F73C00CF5603 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD37D6EC18C1F73C00CF5603 /* FavoritesViewController.m */; };
-		FD37D6F418C23D2400CF5603 /* fav1.png in Resources */ = {isa = PBXBuildFile; fileRef = FD37D6F218C23D2400CF5603 /* fav1.png */; };
-		FD37D6F518C23D2400CF5603 /* fav2.png in Resources */ = {isa = PBXBuildFile; fileRef = FD37D6F318C23D2400CF5603 /* fav2.png */; };
+		FD37D6F718C241EE00CF5603 /* Recipe_List.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = FD37D6F618C241EE00CF5603 /* Recipe_List.sqlite */; };
 		FDC3303918B7E1970043BB48 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC3303818B7E1970043BB48 /* AudioToolbox.framework */; };
 		FDC3303B18B7E1A00043BB48 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC3303A18B7E1A00043BB48 /* CFNetwork.framework */; };
 		FDC3303D18B7E1B20043BB48 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC3303C18B7E1B20043BB48 /* MessageUI.framework */; };
@@ -35,7 +34,6 @@
 		FDC6D3BD18AFE5790070E139 /* Deneme_YemekTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6D3BC18AFE5790070E139 /* Deneme_YemekTests.m */; };
 		FDCF093F18B78AC5000D5ABA /* DBOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF093E18B78AC5000D5ABA /* DBOperations.m */; };
 		FDCF094118B78AD8000D5ABA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FDCF094018B78AD8000D5ABA /* libsqlite3.dylib */; };
-		FDCF094318B7A03F000D5ABA /* Recipe_List.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = FDCF094218B7A03F000D5ABA /* Recipe_List.sqlite */; };
 		FDDA508718B0034E00268423 /* corba.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDDA508618B0034E00268423 /* corba.jpg */; };
 		FDDA508A18B004D100268423 /* TableController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDA508918B004D100268423 /* TableController.m */; };
 		FDDA508D18B0083400268423 /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDA508C18B0083400268423 /* TableCell.m */; };
@@ -62,8 +60,7 @@
 		FD1CF0F218C0F877004FD787 /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OtherViewController.m; path = ../../deneme_slide_menu/deneme_slide_menu/OtherViewController.m; sourceTree = "<group>"; };
 		FD37D6EB18C1F73C00CF5603 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
 		FD37D6EC18C1F73C00CF5603 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
-		FD37D6F218C23D2400CF5603 /* fav1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fav1.png; sourceTree = "<group>"; };
-		FD37D6F318C23D2400CF5603 /* fav2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fav2.png; sourceTree = "<group>"; };
+		FD37D6F618C241EE00CF5603 /* Recipe_List.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Recipe_List.sqlite; sourceTree = "<group>"; };
 		FDC3303818B7E1970043BB48 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		FDC3303A18B7E1A00043BB48 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		FDC3303C18B7E1B20043BB48 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -92,7 +89,6 @@
 		FDCF093D18B78AC5000D5ABA /* DBOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBOperations.h; sourceTree = "<group>"; };
 		FDCF093E18B78AC5000D5ABA /* DBOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBOperations.m; sourceTree = "<group>"; };
 		FDCF094018B78AD8000D5ABA /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		FDCF094218B7A03F000D5ABA /* Recipe_List.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Recipe_List.sqlite; sourceTree = SOURCE_ROOT; };
 		FDDA508618B0034E00268423 /* corba.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = corba.jpg; path = ../../../../Downloads/corba.jpg; sourceTree = "<group>"; };
 		FDDA508818B004D100268423 /* TableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableController.h; sourceTree = "<group>"; };
 		FDDA508918B004D100268423 /* TableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableController.m; sourceTree = "<group>"; };
@@ -175,15 +171,13 @@
 		FDC6D39718AFE5790070E139 /* Deneme_Yemek */ = {
 			isa = PBXGroup;
 			children = (
-				FD37D6F218C23D2400CF5603 /* fav1.png */,
-				FD37D6F318C23D2400CF5603 /* fav2.png */,
+				FD37D6F618C241EE00CF5603 /* Recipe_List.sqlite */,
 				FD1CF0F118C0F877004FD787 /* OtherViewController.h */,
 				FD1CF0F218C0F877004FD787 /* OtherViewController.m */,
 				FD1CF0EE18C0F6A2004FD787 /* SidebarViewController.h */,
 				FD1CF0EF18C0F6A2004FD787 /* SidebarViewController.m */,
 				FD1CF0EB18C0F1DB004FD787 /* SWRevealViewController.h */,
 				FD1CF0EC18C0F1DB004FD787 /* SWRevealViewController.m */,
-				FDCF094218B7A03F000D5ABA /* Recipe_List.sqlite */,
 				FDDA508618B0034E00268423 /* corba.jpg */,
 				FDCF093D18B78AC5000D5ABA /* DBOperations.h */,
 				FDCF093E18B78AC5000D5ABA /* DBOperations.m */,
@@ -313,13 +307,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD37D6F518C23D2400CF5603 /* fav2.png in Resources */,
-				FDCF094318B7A03F000D5ABA /* Recipe_List.sqlite in Resources */,
+				FD37D6F718C241EE00CF5603 /* Recipe_List.sqlite in Resources */,
 				FDC6D3AA18AFE5790070E139 /* Images.xcassets in Resources */,
 				FDC6D39C18AFE5790070E139 /* InfoPlist.strings in Resources */,
 				FDC6D3A518AFE5790070E139 /* Main.storyboard in Resources */,
 				FDDA508718B0034E00268423 /* corba.jpg in Resources */,
-				FD37D6F418C23D2400CF5603 /* fav1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
