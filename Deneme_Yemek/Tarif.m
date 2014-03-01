@@ -10,11 +10,13 @@
 
 @implementation Tarif
 
+@synthesize id;
 @synthesize preparation;
 @synthesize prepTime;
 @synthesize image;
 @synthesize ingredients;
 @synthesize name;
 @synthesize type;
+@synthesize isFavorite;
 
 @end

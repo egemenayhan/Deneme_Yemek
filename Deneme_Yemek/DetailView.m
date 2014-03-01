@@ -7,6 +7,7 @@
 //
 
 #import "DetailView.h"
+#import "DBOperations.h"
 
 @implementation DetailView
 
@@ -38,7 +39,16 @@
     prepTimeLbl.text = tarif.prepTime;
     imageView.image = [UIImage imageNamed:tarif.image];
     preparationtTV.text = tarif.preparation;
-    //NSString *asd = [NSString str]
+    if (tarif.isFavorite == [NSNumber numberWithInteger:1])
+    {
+        _likeButton.image = [UIImage imageNamed:@"fav1"];
+    }
+    else
+    {
+        _likeButton.image = [UIImage imageNamed:@"fav2"];
+    }
+
+
     for (int i = 0; i < [tarif.ingredients count]; i++)
     {
         if (i % 2 == 0)
@@ -74,5 +84,20 @@
     return [myTextView sizeThatFits:CGSizeMake(myTextView.frame.size.width, FLT_MAX)];
 }
 
+-(IBAction) likeButtonPressed:(id)sender
+{
+    if (tarif.isFavorite == [NSNumber numberWithInteger:1])
+    {
+        [[DBOperations sharedDb] updateFavorite:tarif.id isFavorite:[NSNumber numberWithInteger:0]];
+        tarif.isFavorite = [NSNumber numberWithInt:0];
+        _likeButton.image = [UIImage imageNamed:@"fav1"];
+    }
+    else
+    {
+        [[DBOperations sharedDb] updateFavorite:tarif.id isFavorite:[NSNumber numberWithInteger:1]];
+        tarif.isFavorite = [NSNumber numberWithInt:1];
+        _likeButton.image = [UIImage imageNamed:@"fav2"];
+    }
+}
 
 @end

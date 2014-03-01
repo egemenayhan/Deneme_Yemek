@@ -15,5 +15,7 @@ extern sqlite3* database;
 +(DBOperations*)sharedDb;
 -(void)CloseDatabase;
 -(NSMutableArray*)readRecipe;
+-(NSMutableArray*)readFavorites;
+-(void)updateFavorite:(NSNumber *)recipeId isFavorite:(NSNumber *)isLiked;
 
 @end

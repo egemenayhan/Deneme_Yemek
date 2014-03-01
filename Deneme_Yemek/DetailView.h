@@ -22,5 +22,8 @@
 @property (strong, nonatomic) Tarif *tarif;
 @property (weak, nonatomic) IBOutlet UILabel *malzemelerLbl;
 @property (weak, nonatomic) IBOutlet UILabel *hazirlanisLbl;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *likeButton;
+
+-(IBAction)likeButtonPressed:(id)sender;
 
 @end
