@@ -11,4 +11,5 @@
 @interface FavoritesViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (strong, nonatomic) NSMutableArray *favorites;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end

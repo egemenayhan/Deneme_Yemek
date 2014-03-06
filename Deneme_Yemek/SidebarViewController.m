@@ -8,7 +8,6 @@
 
 #import "SidebarViewController.h"
 #import "SWRevealViewController.h"
-#import "OtherViewController.h"
 
 @interface SidebarViewController ()
 
@@ -31,7 +30,7 @@
 {
     [super viewDidLoad];
     
-    menuItems = @[@"BSG", @"Recipes",@"Favorites"];
+    menuItems = @[@"BSG", @"Recipes",@"Favorites",@"Menu Generator",@"Random Recipe"];
 }
 
 - (void)didReceiveMemoryWarning

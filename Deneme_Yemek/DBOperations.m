@@ -260,6 +260,282 @@ sqlite3* database;
     }
 }
 
+-(NSMutableArray*)readSoups
+{
+    NSMutableArray *returnArray=[[NSMutableArray alloc]init];
+    sqlite3_stmt* sqlStmt;
+    [db OpenDatabase];
+    @try {
+        if(database == nil && dataBaseIsOpen == false){
+            NSException *exception = [NSException exceptionWithName: @"ReadFavorites" reason: @"Veritabanı açık değil." userInfo: nil];
+            @throw exception;
+        }
+        
+        NSString* sqlComment = [NSString stringWithFormat:@"SELECT * FROM TblRecipe WHERE type = 1"];
+        
+        
+        //database gönderilen komutun çalışıp çalışmadığını kontrol eder
+        int k=sqlite3_prepare_v2(database, [sqlComment cStringUsingEncoding:(NSUTF8StringEncoding)], -1, &sqlStmt, NULL) ;
+        if(k!= SQLITE_OK) {
+            NSException *exception = [NSException exceptionWithName: @"ReadRecipe" reason: [NSString stringWithFormat:@"sqlite3_prepare_v2'de hata :%d",k] userInfo: nil];
+            @throw exception;
+        }
+        //int kp=sqlite3_step(sqlStmt) ;
+        //satır satır database'den bilgileri okur
+        while (sqlite3_step(sqlStmt) == SQLITE_ROW) {
+            @try {
+                Tarif *obj = [[Tarif alloc]init];
+                //int değerler çekmek için
+                int data = sqlite3_column_int(sqlStmt, 0);
+                obj.id = [NSNumber numberWithInt:data];
+                //string değerler çekmek için
+                obj.name=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 1)];
+                obj.prepTime=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 2)];
+                NSString *txtIngredients = [NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 3)];
+                obj.ingredients = [txtIngredients componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+                obj.preparation=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 4)];
+                obj.image=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 5)];
+                data = sqlite3_column_int(sqlStmt, 6);
+                obj.type = [NSNumber numberWithInt:data];
+                data = sqlite3_column_int(sqlStmt, 7);
+                obj.isFavorite = [NSNumber numberWithInt:data];
+                
+                //db'yi değiştirdikten sonra uygulamayı silin ve ardından product->clean yapın
+                //yoksa eski database i kullanmaya devam eder
+                
+                
+                [returnArray addObject:obj];
+                // data= [(NSNumber*)[returnArray objectAtIndex:0] intValue];
+                
+            }
+            @catch (NSException *exception) {
+                //NSLog(@"%@",exception.description);
+            }
+        }
+    }   @catch (NSException *exception) {
+        //NSLog(@"Fonskiyon:%@  Hata:%@", [exception name], [exception reason]);
+    }
+    
+    @finally {
+        @try {
+            sqlite3_finalize(sqlStmt);
+        }
+        @catch (NSException *exception) {
+            
+        }
+        // [self CloseDatabase];
+        return  returnArray;
+    }
+
+}
+
+-(NSMutableArray*)readAppetizers
+{
+    NSMutableArray *returnArray=[[NSMutableArray alloc]init];
+    sqlite3_stmt* sqlStmt;
+    [db OpenDatabase];
+    @try {
+        if(database == nil && dataBaseIsOpen == false){
+            NSException *exception = [NSException exceptionWithName: @"ReadFavorites" reason: @"Veritabanı açık değil." userInfo: nil];
+            @throw exception;
+        }
+        
+        NSString* sqlComment = [NSString stringWithFormat:@"SELECT * FROM TblRecipe WHERE type = 2"];
+        
+        
+        //database gönderilen komutun çalışıp çalışmadığını kontrol eder
+        int k=sqlite3_prepare_v2(database, [sqlComment cStringUsingEncoding:(NSUTF8StringEncoding)], -1, &sqlStmt, NULL) ;
+        if(k!= SQLITE_OK) {
+            NSException *exception = [NSException exceptionWithName: @"ReadRecipe" reason: [NSString stringWithFormat:@"sqlite3_prepare_v2'de hata :%d",k] userInfo: nil];
+            @throw exception;
+        }
+        //int kp=sqlite3_step(sqlStmt) ;
+        //satır satır database'den bilgileri okur
+        while (sqlite3_step(sqlStmt) == SQLITE_ROW) {
+            @try {
+                Tarif *obj = [[Tarif alloc]init];
+                //int değerler çekmek için
+                int data = sqlite3_column_int(sqlStmt, 0);
+                obj.id = [NSNumber numberWithInt:data];
+                //string değerler çekmek için
+                obj.name=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 1)];
+                obj.prepTime=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 2)];
+                NSString *txtIngredients = [NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 3)];
+                obj.ingredients = [txtIngredients componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+                obj.preparation=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 4)];
+                obj.image=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 5)];
+                data = sqlite3_column_int(sqlStmt, 6);
+                obj.type = [NSNumber numberWithInt:data];
+                data = sqlite3_column_int(sqlStmt, 7);
+                obj.isFavorite = [NSNumber numberWithInt:data];
+                
+                //db'yi değiştirdikten sonra uygulamayı silin ve ardından product->clean yapın
+                //yoksa eski database i kullanmaya devam eder
+                
+                
+                [returnArray addObject:obj];
+                // data= [(NSNumber*)[returnArray objectAtIndex:0] intValue];
+                
+            }
+            @catch (NSException *exception) {
+                //NSLog(@"%@",exception.description);
+            }
+        }
+    }   @catch (NSException *exception) {
+        //NSLog(@"Fonskiyon:%@  Hata:%@", [exception name], [exception reason]);
+    }
+    
+    @finally {
+        @try {
+            sqlite3_finalize(sqlStmt);
+        }
+        @catch (NSException *exception) {
+            
+        }
+        // [self CloseDatabase];
+        return  returnArray;
+    }
+    
+}
+
+-(NSMutableArray*)readMeals
+{
+    NSMutableArray *returnArray=[[NSMutableArray alloc]init];
+    sqlite3_stmt* sqlStmt;
+    [db OpenDatabase];
+    @try {
+        if(database == nil && dataBaseIsOpen == false){
+            NSException *exception = [NSException exceptionWithName: @"ReadFavorites" reason: @"Veritabanı açık değil." userInfo: nil];
+            @throw exception;
+        }
+        
+        NSString* sqlComment = [NSString stringWithFormat:@"SELECT * FROM TblRecipe WHERE type = 3"];
+        
+        
+        //database gönderilen komutun çalışıp çalışmadığını kontrol eder
+        int k=sqlite3_prepare_v2(database, [sqlComment cStringUsingEncoding:(NSUTF8StringEncoding)], -1, &sqlStmt, NULL) ;
+        if(k!= SQLITE_OK) {
+            NSException *exception = [NSException exceptionWithName: @"ReadRecipe" reason: [NSString stringWithFormat:@"sqlite3_prepare_v2'de hata :%d",k] userInfo: nil];
+            @throw exception;
+        }
+        //int kp=sqlite3_step(sqlStmt) ;
+        //satır satır database'den bilgileri okur
+        while (sqlite3_step(sqlStmt) == SQLITE_ROW) {
+            @try {
+                Tarif *obj = [[Tarif alloc]init];
+                //int değerler çekmek için
+                int data = sqlite3_column_int(sqlStmt, 0);
+                obj.id = [NSNumber numberWithInt:data];
+                //string değerler çekmek için
+                obj.name=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 1)];
+                obj.prepTime=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 2)];
+                NSString *txtIngredients = [NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 3)];
+                obj.ingredients = [txtIngredients componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+                obj.preparation=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 4)];
+                obj.image=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 5)];
+                data = sqlite3_column_int(sqlStmt, 6);
+                obj.type = [NSNumber numberWithInt:data];
+                data = sqlite3_column_int(sqlStmt, 7);
+                obj.isFavorite = [NSNumber numberWithInt:data];
+                
+                //db'yi değiştirdikten sonra uygulamayı silin ve ardından product->clean yapın
+                //yoksa eski database i kullanmaya devam eder
+                
+                
+                [returnArray addObject:obj];
+                // data= [(NSNumber*)[returnArray objectAtIndex:0] intValue];
+                
+            }
+            @catch (NSException *exception) {
+                //NSLog(@"%@",exception.description);
+            }
+        }
+    }   @catch (NSException *exception) {
+        //NSLog(@"Fonskiyon:%@  Hata:%@", [exception name], [exception reason]);
+    }
+    
+    @finally {
+        @try {
+            sqlite3_finalize(sqlStmt);
+        }
+        @catch (NSException *exception) {
+            
+        }
+        // [self CloseDatabase];
+        return  returnArray;
+    }
+    
+}
+
+-(NSMutableArray*)readDesserts
+{
+    NSMutableArray *returnArray=[[NSMutableArray alloc]init];
+    sqlite3_stmt* sqlStmt;
+    [db OpenDatabase];
+    @try {
+        if(database == nil && dataBaseIsOpen == false){
+            NSException *exception = [NSException exceptionWithName: @"ReadFavorites" reason: @"Veritabanı açık değil." userInfo: nil];
+            @throw exception;
+        }
+        
+        NSString* sqlComment = [NSString stringWithFormat:@"SELECT * FROM TblRecipe WHERE type = 4"];
+        
+        
+        //database gönderilen komutun çalışıp çalışmadığını kontrol eder
+        int k=sqlite3_prepare_v2(database, [sqlComment cStringUsingEncoding:(NSUTF8StringEncoding)], -1, &sqlStmt, NULL) ;
+        if(k!= SQLITE_OK) {
+            NSException *exception = [NSException exceptionWithName: @"ReadRecipe" reason: [NSString stringWithFormat:@"sqlite3_prepare_v2'de hata :%d",k] userInfo: nil];
+            @throw exception;
+        }
+        //int kp=sqlite3_step(sqlStmt) ;
+        //satır satır database'den bilgileri okur
+        while (sqlite3_step(sqlStmt) == SQLITE_ROW) {
+            @try {
+                Tarif *obj = [[Tarif alloc]init];
+                //int değerler çekmek için
+                int data = sqlite3_column_int(sqlStmt, 0);
+                obj.id = [NSNumber numberWithInt:data];
+                //string değerler çekmek için
+                obj.name=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 1)];
+                obj.prepTime=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 2)];
+                NSString *txtIngredients = [NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 3)];
+                obj.ingredients = [txtIngredients componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+                obj.preparation=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 4)];
+                obj.image=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 5)];
+                data = sqlite3_column_int(sqlStmt, 6);
+                obj.type = [NSNumber numberWithInt:data];
+                data = sqlite3_column_int(sqlStmt, 7);
+                obj.isFavorite = [NSNumber numberWithInt:data];
+                
+                //db'yi değiştirdikten sonra uygulamayı silin ve ardından product->clean yapın
+                //yoksa eski database i kullanmaya devam eder
+                
+                
+                [returnArray addObject:obj];
+                // data= [(NSNumber*)[returnArray objectAtIndex:0] intValue];
+                
+            }
+            @catch (NSException *exception) {
+                //NSLog(@"%@",exception.description);
+            }
+        }
+    }   @catch (NSException *exception) {
+        //NSLog(@"Fonskiyon:%@  Hata:%@", [exception name], [exception reason]);
+    }
+    
+    @finally {
+        @try {
+            sqlite3_finalize(sqlStmt);
+        }
+        @catch (NSException *exception) {
+            
+        }
+        // [self CloseDatabase];
+        return  returnArray;
+    }
+    
+}
+
 -(void)updateFavorite:(NSNumber *)recipeId isFavorite:(NSNumber *)isLiked
 {
     sqlite3_stmt* sqlStmt;

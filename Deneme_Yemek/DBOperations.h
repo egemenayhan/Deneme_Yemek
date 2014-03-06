@@ -17,5 +17,9 @@ extern sqlite3* database;
 -(NSMutableArray*)readRecipe;
 -(NSMutableArray*)readFavorites;
 -(void)updateFavorite:(NSNumber *)recipeId isFavorite:(NSNumber *)isLiked;
+-(NSMutableArray*)readSoups;
+-(NSMutableArray*)readAppetizers;
+-(NSMutableArray*)readMeals;
+-(NSMutableArray*)readDesserts;
 
 @end

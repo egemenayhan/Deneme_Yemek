@@ -17,6 +17,7 @@
 @end
 
 @implementation FavoritesViewController
+@synthesize tableView;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,6 +31,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     _favorites = [[DBOperations sharedDb] readFavorites];
+    [tableView reloadData];
 }
 
 - (void)viewDidLoad
