@@ -157,7 +157,7 @@ sqlite3* database;
                 obj.name=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 1)];
                 obj.prepTime=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 2)];
                 NSString *txtIngredients = [NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 3)];
-                obj.ingredients = [txtIngredients componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+                obj.ingredients = [txtIngredients componentsSeparatedByString:@","];
                 obj.preparation=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 4)];
                 obj.image=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 5)];
                 data = sqlite3_column_int(sqlStmt, 6);
@@ -224,7 +224,7 @@ sqlite3* database;
                 obj.name=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 1)];
                 obj.prepTime=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 2)];
                 NSString *txtIngredients = [NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 3)];
-                obj.ingredients = [txtIngredients componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+                obj.ingredients = [txtIngredients componentsSeparatedByString:@","];
                 obj.preparation=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 4)];
                 obj.image=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 5)];
                 data = sqlite3_column_int(sqlStmt, 6);
@@ -292,7 +292,7 @@ sqlite3* database;
                 obj.name=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 1)];
                 obj.prepTime=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 2)];
                 NSString *txtIngredients = [NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 3)];
-                obj.ingredients = [txtIngredients componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+                obj.ingredients = [txtIngredients componentsSeparatedByString:@","];
                 obj.preparation=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 4)];
                 obj.image=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 5)];
                 data = sqlite3_column_int(sqlStmt, 6);
@@ -361,7 +361,7 @@ sqlite3* database;
                 obj.name=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 1)];
                 obj.prepTime=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 2)];
                 NSString *txtIngredients = [NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 3)];
-                obj.ingredients = [txtIngredients componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+                obj.ingredients = [txtIngredients componentsSeparatedByString:@","];
                 obj.preparation=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 4)];
                 obj.image=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 5)];
                 data = sqlite3_column_int(sqlStmt, 6);
@@ -430,7 +430,7 @@ sqlite3* database;
                 obj.name=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 1)];
                 obj.prepTime=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 2)];
                 NSString *txtIngredients = [NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 3)];
-                obj.ingredients = [txtIngredients componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+                obj.ingredients = [txtIngredients componentsSeparatedByString:@","];
                 obj.preparation=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 4)];
                 obj.image=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 5)];
                 data = sqlite3_column_int(sqlStmt, 6);
@@ -499,7 +499,7 @@ sqlite3* database;
                 obj.name=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 1)];
                 obj.prepTime=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 2)];
                 NSString *txtIngredients = [NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 3)];
-                obj.ingredients = [txtIngredients componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+                obj.ingredients = [txtIngredients componentsSeparatedByString:@","];
                 obj.preparation=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 4)];
                 obj.image=[NSString stringWithUTF8String:(char *)sqlite3_column_text(sqlStmt, 5)];
                 data = sqlite3_column_int(sqlStmt, 6);
@@ -602,5 +602,125 @@ sqlite3* database;
     }
 }
 
+
+
+//ipower tablosundaki şarkı listesinden adı mehmet olan şarkıyı bulma
+//tableName:ipower
+//colonName:Şakılar
+//val:mehmet
+
+-(BOOL) ItemExistsinTable:(NSString*)tableName andColon:(NSString*)colonName andValue:(NSString*)val {
+    [db OpenDatabase];
+    int rows = 0;
+    sqlite3_stmt *stmt;
+    @try {
+        if (database == nil && dataBaseIsOpen == false) {
+            NSException *exception = [NSException exceptionWithName: @"ItemExistsinTable" reason: @"veritabanı açık değil" userInfo: nil];
+            @throw exception;
+        }
+        
+        NSString *strSQL;
+        strSQL =  [NSString stringWithFormat:@"SELECT COUNT(*) FROM %@ where %@='%@'",tableName,colonName,val];
+        const char *sql = (const char *) [strSQL UTF8String];
+        
+        
+        if (sqlite3_prepare_v2(database, sql, -1, &stmt, NULL) == SQLITE_OK) {
+            
+            // THIS IS WHERE IT FAILS:
+            
+            if (sqlite3_step(stmt) == SQLITE_ERROR) {
+                NSAssert1(0,@"Error when counting rows  %s",sqlite3_errmsg(database));
+            }
+            else {
+                rows = sqlite3_column_int(stmt, 0);
+            }
+        }
+        sqlite3_finalize(stmt);
+    }
+    @catch (NSException * e) {
+        //NSLog(@"Error Counting");
+    }
+    @finally {
+        @try {
+            
+            
+        }
+        @catch (NSException *exception) {
+            
+        }
+        // [self CloseDatabase];
+        if(rows==0)
+            return false;
+        return true;
+    }
+}
+
+-(BOOL)addRecipe:(Tarif *)recipe andIngredients:(NSString *)ingredients
+{
+    sqlite3_stmt* sqlStmt;
+    [db OpenDatabase];
+    @try {
+        if(database == nil && dataBaseIsOpen == false){
+            NSException *exception = [NSException exceptionWithName: @"Add Recipe" reason: @"Veritabanı açık değil." userInfo: nil];
+            @throw exception;
+        }
+        
+        NSString *sqlComment = [NSString stringWithFormat:@"INSERT INTO TblRecipe (name,prepTime,ingredients,preparation,imagePath,type,isFavorite) VALUES('%@','%@','%@','%@','%@',%i,%i)",recipe.name,recipe.prepTime,ingredients,recipe.preparation,recipe.image,[recipe.type intValue],0];
+        
+        //database gönderilen komutun çalışıp çalışmadığını kontrol eder
+        int k=sqlite3_prepare_v2(database, [sqlComment cStringUsingEncoding:(NSUTF8StringEncoding)], -1, &sqlStmt, NULL) ;
+        if(k!= SQLITE_OK) {
+            NSException *exception = [NSException exceptionWithName: @"ReadRecipe" reason: [NSString stringWithFormat:@"sqlite3_prepare_v2'de hata :%d",k] userInfo: nil];
+            @throw exception;
+            
+        }
+        
+        
+        /*
+         const char* pszSQL = "UPDATE TblRecipe SET isFavorite = ? WHERE id = ?";
+         
+         if (database == nil && dataBaseIsOpen == false) {
+         NSException *exception = [NSException exceptionWithName: @"UpdateSong" reason: @"veritabanı açık değil" userInfo: nil];
+         @throw exception;
+         }
+         
+         int p=sqlite3_prepare_v2(database, pszSQL, -1, &sqlStmt, NULL) ;
+         if (p!= SQLITE_OK){
+         NSException *exception = [NSException exceptionWithName: @"UpdateSong" reason: @"sqlite3_prepare_v2'da hata oluştu" userInfo: nil];
+         @throw exception;
+         }
+         
+         sqlite3_bind_int(sqlStmt, 1, [isLiked intValue]);
+         sqlite3_bind_int(sqlStmt, 2, [recipeId intValue]);
+         */
+        if (sqlite3_step(sqlStmt) != SQLITE_DONE) {
+            NSException *exception = [NSException exceptionWithName: @"UpdateSong" reason: @"sqlite3_step'da hata oluştu" userInfo: nil];
+            @throw exception;
+        }
+        if (sqlite3_finalize(sqlStmt) != SQLITE_OK){
+            NSException *exception = [NSException exceptionWithName: @"UpdateSong" reason: @"sqlite3_finalize'da hata oluştu" userInfo: nil];
+            @throw exception;
+        }
+        //int kp=sqlite3_step(sqlStmt) ;
+        //satır satır database'den bilgileri okur
+        
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Fonskiyon:%@  Hata:%@", [exception name], [exception reason]);
+        return NO;
+    }
+    
+    @finally {
+        @try {
+            sqlite3_finalize(sqlStmt);
+        }
+        @catch (NSException *exception) {
+            
+        }
+        // [self CloseDatabase];
+        //return  returnArray;
+    }
+    return YES;
+}
 
 @end

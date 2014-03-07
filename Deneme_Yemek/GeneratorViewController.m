@@ -75,22 +75,7 @@
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row
       inComponent:(NSInteger)component
 {
-    if (row+1 == 1)
-    {
-        type = 1;
-    }
-    else if (row+1 == 2)
-    {
-        type = 2;
-    }
-    else if (row+1 == 3)
-    {
-        type = 3;
-    }
-    else if (row+1 == 4)
-    {
-        type = 4;
-    }
+    type = row + 1;
 }
 
 -(IBAction)detailButtonPressed

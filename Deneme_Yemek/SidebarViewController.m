@@ -30,7 +30,7 @@
 {
     [super viewDidLoad];
     
-    menuItems = @[@"BSG", @"Recipes",@"Favorites",@"Menu Generator",@"Random Recipe"];
+    menuItems = @[@"BSG", @"Recipes",@"Favorites",@"Menu Generator",@"Random Recipe",@"Add Recipe"];
 }
 
 - (void)didReceiveMemoryWarning

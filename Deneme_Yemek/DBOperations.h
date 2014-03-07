@@ -12,14 +12,16 @@
 extern sqlite3* database;
 @interface DBOperations : NSObject
 
-+(DBOperations*)sharedDb;
--(void)CloseDatabase;
--(NSMutableArray*)readRecipe;
--(NSMutableArray*)readFavorites;
--(void)updateFavorite:(NSNumber *)recipeId isFavorite:(NSNumber *)isLiked;
--(NSMutableArray*)readSoups;
--(NSMutableArray*)readAppetizers;
--(NSMutableArray*)readMeals;
--(NSMutableArray*)readDesserts;
++(DBOperations*) sharedDb;
+-(void) CloseDatabase;
+-(NSMutableArray*) readRecipe;
+-(NSMutableArray*) readFavorites;
+-(void) updateFavorite:(NSNumber *)recipeId isFavorite:(NSNumber *)isLiked;
+-(NSMutableArray*) readSoups;
+-(NSMutableArray*) readAppetizers;
+-(NSMutableArray*) readMeals;
+-(NSMutableArray*) readDesserts;
+-(BOOL) ItemExistsinTable:(NSString*)tableName andColon:(NSString*)colonName andValue:(NSString*)val;
+-(BOOL) addRecipe:(Tarif *)recipe andIngredients:(NSString *)ingredients;
 
 @end
