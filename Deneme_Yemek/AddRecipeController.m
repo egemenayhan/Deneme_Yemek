@@ -49,6 +49,32 @@
 
 }
 
+- (void)textViewDidBeginEditing:(UITextField *)textField
+{
+    [self animateTextView: textField up: YES];
+}
+
+
+- (void)textViewDidEndEditing:(UITextField *)textField
+{
+    [self animateTextView: textField up: NO];
+}
+
+- (void) animateTextView: (UITextField*) textField up: (BOOL) up
+{
+    const int movementDistance = 210; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = (up ? -movementDistance : movementDistance);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
     if (Type == 0)
